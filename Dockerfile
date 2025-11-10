@@ -37,7 +37,7 @@ COPY --from=builder /root/build-cache /root/build-cache
 COPY --from=builder /root/cargo-home /root/cargo-home
 
 RUN apt update && \
-    apt install curl sudo golang bpftrace -y && \
+    apt install curl sudo golang iproute2 iputils-ping -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
