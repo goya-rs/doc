@@ -48,4 +48,7 @@ task IFACE=veth1
 
 * Currently works only with:
   * **XDP** Programs
+  * **classifier** programs
+  * **kprobe** programs
+  * **tracepoint** programs
 * **Aya logs** are limited to plain text (No macros like `:mac` and `:ip` are not supported)
