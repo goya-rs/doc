@@ -41,7 +41,7 @@ task
 If you need to attach the program to another interface, you can run:
 
 ```Bash
-task IFACE=veth1
+task HOOK=veth1
 ```
 
 ## Limitation
