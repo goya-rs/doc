@@ -47,8 +47,9 @@ task HOOK=veth1
 ## Limitation
 
 * Currently works only with:
-  * **XDP** Programs
+  * **XDP** programs
   * **classifier** programs
   * **kprobe** programs
   * **tracepoint** programs
+  * **uprobe** and **uretprobe** programs
 * **Aya logs** are limited to plain text (No macros like `:mac` and `:ip` are not supported)
