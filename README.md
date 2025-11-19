@@ -52,4 +52,4 @@ task HOOK=veth1
   * **kprobe** and **kretprobe** programs
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
-* **Aya logs** are limited to plain text (No macros like `:mac` and `:ip` are not supported) and there is no log level management
+* **Aya logs** are limited to plain text (Macros like `:mac` and `:ip` are not supported) and there is no log level management
