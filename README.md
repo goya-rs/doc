@@ -13,7 +13,7 @@ You need an [Aya environment](https://aya-rs.dev/book/start/development/), [go l
 If you want to test with docker, you can type:
 
 ```Bash
-docker run --rm -it --name aya \
+docker run --rm -it --name goya \
                     --privileged \
                     --network host \
                     -w /host/root/ \
@@ -51,7 +51,7 @@ task HOOK=veth1
 If you want to test with docker, you can type:
 
 ```Bash
-docker run --rm -it --name aya \
+docker run --rm -it --name goya \
                     --privileged \
                     --network host \
                     -w /host/root/ \
