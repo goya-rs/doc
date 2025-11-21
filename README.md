@@ -6,7 +6,9 @@ Goya is an eBPF framework which uses [Aya Framework](https://github.com/aya-rs/a
 
 You need an [Aya environment](https://aya-rs.dev/book/start/development/) and go lang installed.
 
-## Quick Start with XDP
+## Quick Start
+
+### with XDP
 
 If you want to test with docker, you can type:
 
@@ -44,7 +46,7 @@ If you need to attach the program to another interface, you can run:
 task HOOK=veth1
 ```
 
-## Quick Start with eBPF programs
+### with an eBPF program
 
 If you want to test with docker, you can type:
 
@@ -73,6 +75,13 @@ cargo generate --name goya-ebpf \
 cd goya-ebpf/
 task
 ```
+
+## How to custom the program?
+
+There are two important directories:
+* **`$project-ebpf`** (e.g. `goya-xdp-ebpf`): This directory contains the Rust Aya code that generates the eBPF kernel-space program. For more information, you can read the [Aya book](https://aya-rs.dev/book/).
+* **`$project-go`** (e.g. `goya-xdp-go`): This directory contains the Go code (using Cilium libraries) that loads the eBPF binary into the Linux kernel.
+
 
 ## Limitation
 
