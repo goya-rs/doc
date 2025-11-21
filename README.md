@@ -105,9 +105,11 @@ This project uses the [Goya templates](https://github.com/goya-rs/goya-template)
 
 With Aya, you normally just need to run `cargo run` to create your eBPF program. However, since this project involves both Rust and Go, I need a different solution to compile everything in a single command.
 
-`task` is a modern replacement for Makefile.
+[Task](https://taskfile.dev/) is a modern replacement for Makefile.
 
-The `task` command performs the following steps:
+The `task` command mainly performs the following steps:
 
 * Runs `cargo run` to generate the kernel-space eBPF program and copies it into the `$project-go/.ebpf` directory.
 * Runs `go run .` inside the `$project-go` directory to load the eBPF binary into the kernel and retrieve Aya logs (using a ring buffer map).
+
+For more details, see the [Taskfile](https://github.com/goya-rs/goya-template/blob/main/Taskfile.yml).
