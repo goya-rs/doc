@@ -4,7 +4,7 @@ Goya is an eBPF framework which uses [Aya Framework](https://github.com/aya-rs/a
 
 # How to use it?
 
-You need an [Aya environment](https://aya-rs.dev/book/start/development/) and go lang installed.
+You need an [Aya environment](https://aya-rs.dev/book/start/development/), go lang and task cli installed.
 
 ## Quick Start
 
@@ -92,3 +92,9 @@ There are two important directories:
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
 * **Aya logs** are limited to plain text (Macros like `:mac` and `:ip` are not supported) and there is no log level management
+
+# Under the hood
+
+task command line did :
+* `cargo run`: To generate kernel-space program and copy in `$project-go/.ebpf` directory
+* `go run .` in `$project-go` directory: To load eBPF binary and retrieve Aya logs (which use ring buffer map)
