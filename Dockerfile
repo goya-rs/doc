@@ -19,7 +19,7 @@ RUN cargo generate --name test-uprobe \
                -d program_type=uprobe \
                -d uprobe_target=/proc/self/exe \
                -d uprobe_fn_name=main=/proc/self/exe \
-               https://github.com/aya-rs/aya-template
+               https://github.com/goya-rs/goya-template
 
 WORKDIR /root/test-uprobe
 
