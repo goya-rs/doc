@@ -6,7 +6,7 @@ Goya is an eBPF framework which uses [Aya Framework](https://github.com/aya-rs/a
 
 You need an [Aya environment](https://aya-rs.dev/book/start/development/) and go lang installed.
 
-## Quick Start
+## Quick Start with XDP
 
 If you want to test with docker, you can type:
 
@@ -31,7 +31,7 @@ cargo generate --name goya-xdp \
                https://github.com/goya-rs/goya-template
 ```
 
-Compile and install the eBPF "hello world" program:
+Compile and install the XDP "hello world" program:
 
 ```Bash
 cd goya-xdp/
@@ -42,6 +42,36 @@ If you need to attach the program to another interface, you can run:
 
 ```Bash
 task HOOK=veth1
+```
+
+## Quick Start with eBPF programs
+
+If you want to test with docker, you can type:
+
+```Bash
+docker run --rm -it --name aya \
+                    --privileged \
+                    --network host \
+                    -w /host/root/ \
+                    -v /:/host \
+                    -v /sys/kernel/debug:/sys/kernel/debug \
+                    littlejo/aya:goya bash
+```
+
+* More info in [Dockerfile](./Dockerfile)
+
+```Bash
+cargo generate --name goya-ebpf \
+               https://github.com/goya-rs/goya-template
+```
+
+* Select the eBPF program and options
+
+* Once code generated, Compile and install the eBPF "hello world" program:  
+
+```Bash
+cd goya-ebpf/
+task
 ```
 
 ## Limitation
