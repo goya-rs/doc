@@ -101,11 +101,11 @@ The `cargo generate` command comes from the [cargo-generate](https://cargo-gener
 
 This project uses the [Goya template](https://github.com/goya-rs/goya-template), which is a fork of the original [Aya template](https://github.com/aya-rs/aya-template).
 
-## Task
+## Taskfile
 
 With Aya, you normally just need to run `cargo run` to create your eBPF program. However, since this project involves both Rust and Go, I need a different solution to compile everything in a single command.
 
-[Task](https://taskfile.dev/) is a modern replacement for Makefile.
+[Taskfile](https://taskfile.dev/) is a modern replacement for Makefile.
 
 The `task` command mainly performs the following steps:
 
