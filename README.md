@@ -110,6 +110,6 @@ With Aya, you normally just need to run `cargo run` to create your eBPF program.
 The `task` command mainly performs the following steps:
 
 * Runs `cargo run` to generate the kernel-space eBPF program and copies it into the `$project-go/.ebpf` directory.
-* Runs `go run .` inside the `$project-go` directory to load the eBPF binary into the kernel and retrieve Aya logs (using a ring buffer map).
+* Runs `go run .` inside the `$project-go` directory to load the eBPF binary into the kernel (with [cilium go library](https://ebpf-go.dev/])) and retrieve Aya logs (using a ring buffer map).
 
 For more details, see the [Taskfile](https://github.com/goya-rs/goya-template/blob/main/Taskfile.yml).
