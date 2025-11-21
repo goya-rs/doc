@@ -95,6 +95,19 @@ There are two important directories:
 
 # Under the hood
 
-task command line did :
-* `cargo run`: To generate kernel-space program and copy in `$project-go/.ebpf` directory
-* `go run .` in `$project-go` directory: To load eBPF binary and retrieve Aya logs (which use ring buffer map)
+## Cargo generate
+
+The `cargo generate` command comes from the [cargo-generate](https://cargo-generate.github.io/cargo-generate/) crate. It uses boilerplates (see the [templating documentation](https://shopify.github.io/liquid/)) to generate code.
+
+This project uses the [Goya templates](https://github.com/goya-rs/goya-template), which are a fork of the original [Aya templates](https://github.com/aya-rs/aya-template).
+
+## Task
+
+With Aya, you normally just need to run `cargo run` to create your eBPF program. However, since this project involves both Rust and Go, I need a different solution to compile everything in a single command.
+
+`task` is a modern replacement for Makefile.
+
+The `task` command performs the following steps:
+
+* Runs `cargo run` to generate the kernel-space eBPF program and copies it into the `$project-go/.ebpf` directory.
+* Runs `go run .` inside the `$project-go` directory to load the eBPF binary into the kernel and retrieve Aya logs (using a ring buffer map).
