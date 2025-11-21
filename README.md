@@ -99,7 +99,7 @@ There are two important directories:
 
 The `cargo generate` command comes from the [cargo-generate](https://cargo-generate.github.io/cargo-generate/) crate. It uses boilerplates (see the [templating documentation](https://shopify.github.io/liquid/)) to generate code.
 
-This project uses the [Goya templates](https://github.com/goya-rs/goya-template), which are a fork of the original [Aya templates](https://github.com/aya-rs/aya-template).
+This project uses the [Goya template](https://github.com/goya-rs/goya-template), which is a fork of the original [Aya template](https://github.com/aya-rs/aya-template).
 
 ## Task
 
