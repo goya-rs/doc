@@ -89,6 +89,7 @@ There are two important directories:
   * **XDP** programs
   * **classifier** programs
   * **kprobe** and **kretprobe** programs
+  * **btf tracepoint** programs
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
   * **LSM** programs
