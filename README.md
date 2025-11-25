@@ -91,6 +91,7 @@ There are two important directories:
   * **kprobe** and **kretprobe** programs
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
+  * **LSM** programs
 * **Aya logs** are limited to plain text (Macros like `:mac` and `:ip` are not supported) and there is no log level management
 
 # Under the hood
