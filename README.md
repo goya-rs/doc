@@ -75,6 +75,9 @@ cargo generate --name goya-ebpf \
 
 * Select the eBPF program and options
 
+![ebpf type choice](./img/goya-choice.webp)
+![tp_btf choice](./img/tp_btf-choice.webp)
+
 * Once code generated, Compile and install the eBPF "hello world" program:  
 
 ```Bash
