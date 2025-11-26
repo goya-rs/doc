@@ -12,6 +12,8 @@ You need an [Aya environment](https://aya-rs.dev/book/start/development/), [go l
 
 ## Quick Start
 
+![goya demo](https://blog.littlejo.link/assets/gif/goya.gif)
+
 ### with XDP
 
 If you want to test with docker, you can type:
