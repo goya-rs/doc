@@ -2,6 +2,8 @@
 
 Goya is an eBPF framework which uses [Aya Framework](https://github.com/aya-rs/aya) for kernel space (In Rust) and [Cilium library](https://github.com/cilium/ebpf) (In Go) for user space.
 
+![Goya](./img/goya.webp)
+
 # How to use it?
 
 You need an [Aya environment](https://aya-rs.dev/book/start/development/), [go lang](https://go.dev/) and [task cli](https://taskfile.dev/) installed. You also can test on an [online lab](https://killercoda.com/aya-dev/course/aya-prod/goya).
