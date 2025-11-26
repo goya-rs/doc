@@ -12,7 +12,7 @@ You need an [Aya environment](https://aya-rs.dev/book/start/development/), [go l
 
 ## Quick Start
 
-![goya demo](./img/goya.gif)
+![goya demo](./img/goya-tracepoint.gif)
 
 ### with XDP
 
