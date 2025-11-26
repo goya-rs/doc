@@ -73,7 +73,7 @@ cargo generate --name goya-ebpf \
                https://github.com/goya-rs/goya-template
 ```
 
-* Select the eBPF program and options
+* Select the eBPF program and hooks:
 
 ![ebpf type choice](./img/goya-choice.webp)
 ![tp_btf choice](./img/tp_btf-choice.webp)
