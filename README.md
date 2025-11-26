@@ -8,6 +8,8 @@ Goya is an eBPF framework which uses [Aya Framework](https://github.com/aya-rs/a
 
 You need an [Aya environment](https://aya-rs.dev/book/start/development/), [go lang](https://go.dev/) and [task cli](https://taskfile.dev/) installed. You also can test on an [online lab](https://killercoda.com/aya-dev/course/aya-prod/goya).
 
+![[Killer coda Lab](./img/lab.webp)](https://killercoda.com/aya-dev/course/aya-prod/goya)
+
 ## Quick Start
 
 ### with XDP
