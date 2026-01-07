@@ -104,6 +104,7 @@ There are two important directories:
   * **LSM** programs
 * **Aya logs** are limited to plain text (Macros like `:mac` and `:ip` are not supported) and there is no log level management
 * You can't use `bpf_probe_read_user_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
+* You can't use `bpf_probe_read_kernel_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
 
 # Under the hood
 
