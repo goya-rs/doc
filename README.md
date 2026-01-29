@@ -102,7 +102,6 @@ There are two important directories:
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
   * **LSM** programs
-* You can't use BTF map (ISSUE: [37](https://github.com/goya-rs/goya-template/issues/37))
 * You can't use `bpf_probe_read_user_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
 * You can't use `bpf_probe_read_kernel_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
 
