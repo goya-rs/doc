@@ -102,8 +102,44 @@ There are two important directories:
   * **tracepoint** programs
   * **uprobe** and **uretprobe** programs
   * **LSM** programs
-* You can't use `bpf_probe_read_user_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
-* You can't use `bpf_probe_read_kernel_str_bytes` helper function (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported. (2 line(s) omitted)`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
+* You can't use `bpf_probe_read_user_str_bytes` / `bpf_probe_read_kernel_str_bytes` helper functions followed by a variable-length copy (`load program: invalid argument: Global function memcpy() doesn't return scalar. Only those are supported.`) (ISSUE: [35](https://github.com/goya-rs/goya-template/issues/35))
+
+  These helpers return a `&[u8]` whose length is only known at run time. As soon as the program copies that runtime-length slice (e.g. `copy_from_slice` into a map value), LLVM emits a `call` to Aya's **global** `memcpy`/`memmove`/`memset` fallbacks, which return `void`. Since kernel 5.18 (function-by-function verification), called global functions must return a scalar, so the kernel BPF verifier rejects the program.
+
+  **Workaround:** read the string with a scalar-returning helper into a **fixed-size** buffer, and never perform a runtime-length copy in eBPF space:
+
+  ```rust
+  use aya_ebpf::{
+      helpers::bpf_probe_read_user_buf,
+      macros::{map, uprobe},
+      maps::Array,
+      programs::ProbeContext,
+  };
+
+  #[map]
+  pub static BUF: Array<[u8; 16]> = Array::with_max_entries(1, 0);
+
+  #[uprobe]
+  pub fn enter(ctx: ProbeContext) {
+      let ptr = match ctx.arg::<*const u8>(0) {
+          Some(p) => p,
+          None => return,
+      };
+      let mptr = match BUF.get_ptr_mut(0) {
+          Some(p) => p,
+          None => return,
+      };
+      let v = unsafe { &mut *mptr };
+      // scalar Result<(), i32>, fixed-size destination, no runtime-length copy
+      if unsafe { bpf_probe_read_user_buf(ptr, v) }.is_ok() {
+          // use v here
+      }
+  }
+  ```
+
+  Rules of thumb: avoid any `memcpy`/`memmove`/`copy_from_slice` with a runtime length in eBPF space; prefer `bpf_probe_read_user` / `bpf_probe_read_kernel` / the `*_buf` variants with a fixed buffer; use `bpf_strncmp` to compare strings.
+
+  A buildable reproduction (broken vs fixed) is available in the [goya-rs/test](https://github.com/goya-rs/test) repository.
 
 # Under the hood
 
